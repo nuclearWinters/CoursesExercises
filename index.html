@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Armando's iframe</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script>
+      const fetchData = async () => {
+        try {
+          const response = await axios({
+            method: "GET",
+            url: "https://develop.bewor.com/api/workingTime/more",
+            headers: {
+              Authorization:
+                "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczpcL1wvZGV2ZWxvcC5iZXdvci5jb21cL2FwaVwvbG9naW4iLCJpYXQiOjE2MDUzOTM1ODAsImV4cCI6MTYwNTM5NzE4MCwibmJmIjoxNjA1MzkzNTgwLCJqdGkiOiJUdWlsSlVVc2MyYVRJZkozIiwic3ViIjo4LCJwcnYiOiJiOTEyNzk5NzhmMTFhYTdiYzU2NzA0ODdmZmYwMWUyMjgyNTNmZTQ4In0.4_uIJxZtMI3p7TB3nrzny-R8WqOKN1VIvTmUSzMPMm8",
+              "Content-Type": "application/json",
+            },
+            data: JSON.stringify({
+              date: "2020-10-19",
+              user_id: 8,
+              time_zone: "America/Mexico_City",
+            }),
+          });
+          console.log(response.data);
+        } catch (e) {
+          console.log(e.message);
+        }
+      };
+
+      fetchData();
+    </script>
+  </head>
+  <body>
+    <style>
+      .test {
+        display: inline;
+      }
+    </style>
+    <p class="test">First Sentence</p>
+    <p class="test">Another Sentence</p>
+  </body>
+</html>

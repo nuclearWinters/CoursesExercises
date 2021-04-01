@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Armando's iframe</title>
+    <script
+      crossorigin
+      src="https://unpkg.com/react@17/umd/react.development.js"
+    ></script>
+    <script
+      crossorigin
+      src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"
+    ></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script
+      crossorigin
+      data-type="module"
+      type="text/babel"
+      data-plugins="transform-modules-umd"
+      src="http://localhost:8080/prueba.js"
+    ></script>
+    <script
+      crossorigin
+      data-type="module"
+      type="text/babel"
+      data-plugins="transform-modules-umd"
+      src="http://localhost:8080/Component.js"
+    ></script>
+    <link
+      rel="stylesheet"
+      href="/Users/armandorueda/Documents/Vanilla%20Javascript/prueba.css"
+    />
+  </head>
+  <body>
+    <div id="app"></div>
+    <script
+      data-plugins="transform-modules-umd"
+      data-type="module"
+      type="text/babel"
+    >
+      import prueba from "./prueba";
+      import Component from "./Component";
+      //import { useEffect } from "./react";
+      const App = () => {
+        React.useEffect(() => {
+          console.log(prueba());
+        }, []);
+        return (
+          <div>
+            <div>Prueba desde html</div>
+            <Component />
+          </div>
+        );
+      };
+      ReactDOM.render(<App />, document.getElementById("app"));
+    </script>
+  </body>
+</html>
